@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { GridsterConfig, GridsterItem } from 'angular-gridster2';
+import { GridsterConfig } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
+import { Post } from '../model/post';
 
 @Injectable({
   providedIn: 'root'
@@ -17,21 +18,47 @@ export class LayoutService {
     }
   };
 
-  public layout: GridsterItem[] = [];
+  public posts: Post[] = [];
 
-  addItem(): void {
-    this.layout.push({
+  public mockPost: Post = {
+    id: '123',
+    title: 'About me',
+    html: '<h1> Hello, World! </h1>',
+    createdDate: new Date(),
+    lastModifiedDate: new Date(),
+    layout: {
       cols: 5,
       id: UUID.UUID(),
       rows: 5,
       x: 0,
       y: 0
-    });
+    }
+  }
+
+  addItem(): void {
+    this.posts.push({
+      id: '123',
+      title: 'About me',
+      html: '<h1> Hello, World! </h1>',
+      createdDate: new Date(),
+      lastModifiedDate: new Date(),
+      layout: {
+        cols: 5,
+        id: UUID.UUID(),
+        rows: 5,
+        x: 0,
+        y: 0
+      }});
   }
 
   deleteItem(id: String): void {
-    const item: any = this.layout.find(d => d.id === id);
-    this.layout.splice(this.layout.indexOf(item), 1);
+    const item: any = this.posts.find(d => d.layout.id === id);
+    this.posts.splice(this.posts.indexOf(item), 1);
+  }
+
+  resetItens() {
+    this.posts = [];
+    this.posts.push(this.mockPost);
   }
 
 }
