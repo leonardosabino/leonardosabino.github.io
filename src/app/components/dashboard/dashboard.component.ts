@@ -8,7 +8,7 @@ import { LayoutService } from 'src/app/services/layout.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class LayoutComponent {
+export class DashboardComponent {
 
   get options(): GridsterConfig {
     return this.layoutService.options;

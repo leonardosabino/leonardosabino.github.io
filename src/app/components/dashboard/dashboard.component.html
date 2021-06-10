@@ -1,41 +1,35 @@
 <mat-drawer-container class="container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side">
-      <mat-list role="list">
-        <mat-list-item role="listitem">
-          <mat-icon mat-list-icon>folder</mat-icon>
-          <div mat-line>Home</div>
-        </mat-list-item>
-        <mat-list-item role="listitem" [matMenuTriggerFor]="projects">
-          <mat-icon mat-list-icon>folder</mat-icon>
-          <div mat-line>Projects</div>
-        </mat-list-item>
-      </mat-list>
-      <mat-menu #projects="matMenu">
-        <button mat-menu-item>Fishes</button>
-        <button mat-menu-item>Amphibians</button>
-        <button mat-menu-item>Reptiles</button>
-        <button mat-menu-item>Birds</button>
-        <button mat-menu-item>Mammals</button>
-      </mat-menu>
-      <button (click)="addItem()">Add Item</button>
-    </mat-drawer>
-  
-    <div class="sidenav-content">
-      <button type="button" mat-button (click)="drawer.toggle()">
-        Toggle sidenav
-      </button>
-      <button type="button" mat-button (click)="resetItens()">
-        Reset Itens
-      </button>
-        <gridster [options]="options">
-            <gridster-item *ngFor="let item of posts" [item]="item.layout">
-                <h1>{{item.title}}</h1>
-                <button (click)="deleteItem(item.layout.id)">
-                    X
-                </button>
-                <div [innerHtml]="item.html"></div>
-            </gridster-item>
-        </gridster>
-    </div>
-  
-  </mat-drawer-container>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <app-nav-dashboard (addItem)="addItem()"></app-nav-dashboard>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+    <button type="button" mat-button (click)="resetItens()">
+      Reset Itens
+    </button>
+    <gridster [options]="options">
+      <gridster-item *ngFor="let item of posts" [item]="item.layout">
+        <p>
+          <mat-toolbar color="primary">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <span>My App</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+              <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+              <mat-icon>share</mat-icon>
+            </button>
+          </mat-toolbar>
+        </p>
+        <div [innerHtml]="item.html"></div>
+      </gridster-item>
+    </gridster>
+  </div>
+
+</mat-drawer-container>

@@ -1,0 +1,25 @@
+<mat-nav-list>
+    <mat-list-item class="parent">
+        <span class="full-width">home</span>
+        <mat-icon mat-list-icon>home</mat-icon>
+    </mat-list-item>
+    <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+        <span class="full-width">project</span>
+        <mat-icon mat-list-icon>settings</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' :  showSubmenu}">
+            expand_more</mat-icon>
+        <div *ngIf="showSubmenu">
+            <mat-nav-list>
+                <mat-list-item (click)="addItem.emit()">
+                    xablau 1
+                </mat-list-item>
+                <mat-list-item (click)="addItem.emit()">
+                    xablau 1
+                </mat-list-item>
+                <mat-list-item (click)="addItem.emit()">
+                    xablau 1
+                </mat-list-item>
+            </mat-nav-list>
+        </div>
+    </mat-list-item>
+</mat-nav-list>
