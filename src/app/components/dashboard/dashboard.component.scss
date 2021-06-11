@@ -1,19 +1,32 @@
 :host {
-  .toolbar {
-    height: 100px;
-    display: flex;
-  }
-  gridster {
-    display: flex;
-    height: calc(100vh - 115px);
-    flex-direction: column;
-    background-color: gray;
-  }
-}
-button {
-  height: 30px;
+    .toolbar {
+        height: 100px;
+        display: flex;
+    }
+    gridster {
+        display: flex;
+        height: calc(100vh - 115px);
+        flex-direction: column;
+        background-color: gray;
+    }
 }
 
-.example-spacer {
-  flex: 1 1 auto;
+mat-drawer-container {
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    top: 0px;
+}
+
+gridster {
+    height: 100% !important;
+}
+
+button {
+    height: 30px;
+}
+
+.spacer {
+    flex: 1 1 auto;
 }

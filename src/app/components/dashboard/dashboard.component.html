@@ -1,35 +1,27 @@
 <mat-drawer-container class="container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side">
-    <app-nav-dashboard (addItem)="addItem()"></app-nav-dashboard>
-  </mat-drawer>
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <app-nav-dashboard (addItem)="addItem()"></app-nav-dashboard>
+    </mat-drawer>
 
-  <div class="sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
+    <mat-drawer-content class="sidenav-content">
+        <button type="button" mat-button (click)="drawer.toggle()">
       Toggle sidenav
     </button>
-    <button type="button" mat-button (click)="resetItens()">
+        <button type="button" mat-button (click)="resetItens()">
       Reset Itens
     </button>
-    <gridster [options]="options">
-      <gridster-item *ngFor="let item of posts" [item]="item.layout">
-        <p>
-          <mat-toolbar color="primary">
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-              <mat-icon>menu</mat-icon>
-            </button>
-            <span>My App</span>
-            <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-              <mat-icon>favorite</mat-icon>
-            </button>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-              <mat-icon>share</mat-icon>
-            </button>
-          </mat-toolbar>
-        </p>
-        <div [innerHtml]="item.html"></div>
-      </gridster-item>
-    </gridster>
-  </div>
+        <gridster [options]="options">
+            <gridster-item *ngFor="let item of posts" [item]="item.layout">
+                <p>
+                    <mat-toolbar color="primary">
+                        <span>{{item.title}}</span>
+                        <span class="spacer"></span>
+                        <mat-icon (click)="deleteItem(item.id)">close</mat-icon>
+                    </mat-toolbar>
+                </p>
+                <div [innerHtml]="item.html"></div>
+            </gridster-item>
+        </gridster>
+    </mat-drawer-content>
 
 </mat-drawer-container>
