@@ -20,7 +20,49 @@ export class LayoutService {
 
   public posts: Post[] = [];
 
-  public mockPost: Post = {
+  public defaultPosts: Post[] = [{
+    id: '123',
+    title: 'About me',
+    html: '<h1> Hello, World! </h1>',
+    createdDate: new Date(),
+    lastModifiedDate: new Date(),
+    layout: {
+      cols: 2,
+      id: UUID.UUID(),
+      rows: 5,
+      x: 0,
+      y: 11,
+    }
+  },
+  {
+    id: '123',
+    title: 'About me',
+    html: '<h1> Hello, World! </h1>',
+    createdDate: new Date(),
+    lastModifiedDate: new Date(),
+    layout: {
+      cols: 2,
+      id: UUID.UUID(),
+      rows: 11,
+      x: 0,
+      y: 0,
+    }
+  },
+  {
+    id: '123',
+    title: 'About me',
+    html: '<h1> Hello, World! </h1>',
+    createdDate: new Date(),
+    lastModifiedDate: new Date(),
+    layout: {
+      cols: 2,
+      id: UUID.UUID(),
+      rows: 16,
+      x: 7,
+      y: 0,
+    }
+  },
+  {
     id: '123',
     title: 'About me',
     html: '<h1> Hello, World! </h1>',
@@ -29,11 +71,12 @@ export class LayoutService {
     layout: {
       cols: 5,
       id: UUID.UUID(),
-      rows: 5,
-      x: 0,
-      y: 0
+      rows: 16,
+      x: 2,
+      y: 0,
     }
   }
+  ]
 
   addItem(): void {
     this.posts.push({
@@ -48,7 +91,8 @@ export class LayoutService {
         rows: 5,
         x: 0,
         y: 0
-      }});
+      }
+    });
   }
 
   deleteItem(id: String): void {
@@ -57,8 +101,19 @@ export class LayoutService {
   }
 
   resetItens() {
+    this.posts = this.defaultPosts;
+  }
+
+  consolePost() {
+    console.log(this.posts);
+  }
+
+  clear() {
     this.posts = [];
-    this.posts.push(this.mockPost);
+  }
+
+  constructor() {
+    this.posts = this.defaultPosts;
   }
 
 }

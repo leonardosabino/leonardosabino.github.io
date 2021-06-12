@@ -33,4 +33,8 @@ export class DashboardComponent {
     this.layoutService.resetItens();
   }
 
+  clear() {
+    this.layoutService.clear();
+  }
+
 }

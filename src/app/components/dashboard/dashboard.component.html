@@ -4,21 +4,16 @@
     </mat-drawer>
 
     <mat-drawer-content class="sidenav-content">
-        <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
-    </button>
-        <button type="button" mat-button (click)="resetItens()">
-      Reset Itens
-    </button>
+        <button type="button" mat-button (click)="drawer.toggle()">Toggle sidenav</button>
+        <button type="button" mat-button (click)="resetItens()">Reset Itens</button>
+        <button type="button" mat-button (click)="clear()">Clear</button>
         <gridster [options]="options">
             <gridster-item *ngFor="let item of posts" [item]="item.layout">
-                <p>
-                    <mat-toolbar color="primary">
-                        <span>{{item.title}}</span>
-                        <span class="spacer"></span>
-                        <mat-icon (click)="deleteItem(item.id)">close</mat-icon>
-                    </mat-toolbar>
-                </p>
+                <mat-toolbar color="secondary">
+                    <span>{{item.title}}</span>
+                    <span class="spacer"></span>
+                    <mat-icon (click)="deleteItem(item.id)">close</mat-icon>
+                </mat-toolbar>
                 <div [innerHtml]="item.html"></div>
             </gridster-item>
         </gridster>
