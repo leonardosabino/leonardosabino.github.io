@@ -101,7 +101,7 @@ export class LayoutService {
   }
 
   resetItens() {
-    this.posts = this.defaultPosts;
+    this.posts = JSON.parse(JSON.stringify(this.defaultPosts));
   }
 
   consolePost() {
@@ -113,7 +113,7 @@ export class LayoutService {
   }
 
   constructor() {
-    this.posts = this.defaultPosts;
+    this.posts = JSON.parse(JSON.stringify(this.defaultPosts));
   }
 
 }
