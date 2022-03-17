@@ -214,6 +214,21 @@
      background: #fff;
      text-decoration: none;
  }
+
+ .btn-rounded-black {
+    display: inline-block;
+    color: rgb(66, 66, 66);
+    padding: 15px 25px;
+    border: 3px solid rgb(66, 66, 66);
+    border-radius: 30px;
+    transition: 0.5s ease all;
+}
+
+ .btn-rounded-black:hover {
+    color: rgb(233, 233, 233);
+    background: rgb(66, 66, 66);
+    text-decoration: none;
+}
  
  .shadow {
      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
